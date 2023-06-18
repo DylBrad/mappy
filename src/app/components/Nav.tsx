@@ -38,7 +38,7 @@ const Nav = () => {
   const handleLogOut = () => {
     console.log("log me out");
     removeCookie("token", cookies.token);
-    // window.location.reload(false);
+    window.location.reload();
   };
 
   return (
