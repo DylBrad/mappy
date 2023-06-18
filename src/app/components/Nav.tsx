@@ -1,12 +1,12 @@
-"use client";
-import * as React from "react";
-import Link from "next/link";
-import { GrMapLocation } from "react-icons/gr";
-import { FaUserAlt } from "react-icons/fa";
-import { CgFeed } from "react-icons/cg";
-import { useCookies } from "react-cookie";
+'use client';
+import * as React from 'react';
+import Link from 'next/link';
+import { GrMapLocation } from 'react-icons/gr';
+import { FaUserAlt } from 'react-icons/fa';
+import { CgFeed } from 'react-icons/cg';
+import { useCookies } from 'react-cookie';
 
-import AuthModal from "./AuthModal";
+import AuthModal from './AuthModal';
 
 const Nav = () => {
   let ShowAuthModal: boolean;
@@ -14,16 +14,12 @@ const Nav = () => {
   let IsSignUp: boolean;
   IsSignUp = true;
   let CookieName: string;
-  CookieName = "user";
+  CookieName = 'user';
 
   const [showAuthModal, setShowAuthModal] = React.useState(ShowAuthModal);
   const [isSignUp, setIsSignUp] = React.useState(IsSignUp);
   const [cookies, setCookie, removeCookie] = useCookies([CookieName]);
   const authToken = cookies.token;
-
-  React.useEffect(() => {
-    console.log("TOKEN *************---->>>", authToken);
-  }, []);
 
   const handleSignUp = () => {
     setShowAuthModal(true);
@@ -36,8 +32,8 @@ const Nav = () => {
   };
 
   const handleLogOut = () => {
-    console.log("log me out");
-    removeCookie("token", cookies.token);
+    console.log('log me out');
+    removeCookie('token', cookies.token);
     window.location.reload();
   };
 
