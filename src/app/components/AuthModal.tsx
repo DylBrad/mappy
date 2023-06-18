@@ -41,7 +41,7 @@ const AuthModal = (props: any) => {
 
         props.setIsSignUp(false);
         props.setShowAuthModal(false);
-        // window.location.reload(false);
+        window.location.reload();
       }
 
       if (!props.isSignUp) {
@@ -50,7 +50,7 @@ const AuthModal = (props: any) => {
         setCookie("token", loggedIn.token);
 
         props.setShowAuthModal(false);
-        // window.location.reload(false);
+        window.location.reload();
       }
     } catch (error) {
       console.log(error);
