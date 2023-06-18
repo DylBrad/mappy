@@ -34,6 +34,7 @@ export default function Home() {
     latitude: 53.3498,
     zoom: 11,
   });
+  const [mapboxToken, setMapboxToken] = React.useState<string | undefined>('');
 
   // Make request to backend here
   const getAllMarkers = async () => {
@@ -55,7 +56,8 @@ export default function Home() {
     getAllMarkers();
     setCoordinatesToUserLocation();
     console.log('Hi !!!!!!!');
-    console.log(process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
+    console.log('ACCESS TOKEN:', process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
+    setMapboxToken(process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
   }, []);
 
   const showAddMarkerPopup = (e: any) => {
@@ -79,7 +81,7 @@ export default function Home() {
       <Nav />
       <Map
         {...viewState}
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken={mapboxToken}
         style={{ marginLeft: '260px', width: 'auto', height: '100vh' }}
         onMove={(evt) => setViewState(evt.viewState)}
         mapStyle="mapbox://styles/dylbrad/cl9h7i0r900it14pi0yg2sacm"
