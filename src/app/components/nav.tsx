@@ -30,6 +30,11 @@ const Nav = () => {
           </li>
         </ul>
       </div>
+      <section className="nav-btn-container">
+        <button className="primary-button">Sign Out</button>
+        <button className="primary-button">Create Account</button>
+        <button className="primary-button">Log In</button>
+      </section>
     </nav>
   );
 };
