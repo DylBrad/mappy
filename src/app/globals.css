@@ -73,3 +73,13 @@ button {
 .nav-child {
   margin-left: 240px;
 }
+.primary-button {
+  position: relative;
+  padding: 5px 8px;
+  background-color: white;
+  border: none;
+  color: #414040;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 10px;
+}
