@@ -2,7 +2,7 @@
 import * as React from "react";
 import { useForm } from "react-hook-form";
 import { useCookies } from "react-cookie";
-// import { createUser, loginUser } from "../../API";
+import { createUser, loginUser } from "../API";
 
 const AuthModal = (props: any) => {
   let ErrorMessage: string;
