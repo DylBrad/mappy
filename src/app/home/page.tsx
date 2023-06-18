@@ -1,5 +1,5 @@
 'use client';
-import React from 'react';
+import * as React from 'react';
 import styles from '../page.module.css';
 import Map, {
   Marker,
@@ -11,23 +11,25 @@ import Map, {
 import { listLogEntries } from '../API';
 import Nav from '../components/Nav';
 import GeoCoder from './GeoCoder/GeoCoder';
-// import LogEntry from '../../components/LogEntry/LogEntry';
-// import NewEntryForm from '../../components/NewEntryForm';
+import LogEntry from './LogEntry/LogEntry';
+import NewEntryForm from './NewEntryForm/NewEntryForm';
 
 export default function Home() {
-  interface viewState {
+  interface ViewState {
     latitude: number;
     longitude: number;
+    zoom: number;
   }
-  interface newEntryLocation {
+  interface NewEntryLocation {
     latitude: number;
     longitude: number;
   }
 
   const [logEntries, setLogEntries] = React.useState([]);
-  const [popupInfo, setPopupInfo] = React.useState(null);
-  const [newEntryLocation, setNewEntryLocation] = React.useState(null);
-  const [viewState, setViewState] = React.useState({
+  const [popupInfo, setPopupInfo] = React.useState<any | null>(null);
+  const [newEntryLocation, setNewEntryLocation] =
+    React.useState<NewEntryLocation | null>(null);
+  const [viewState, setViewState] = React.useState<ViewState | null>({
     longitude: -6.2603,
     latitude: 53.3498,
     zoom: 11,
@@ -52,6 +54,8 @@ export default function Home() {
   React.useEffect(() => {
     getAllMarkers();
     setCoordinatesToUserLocation();
+    console.log('Hi !!!!!!!');
+    console.log(process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
   }, []);
 
   const showAddMarkerPopup = (e: any) => {
@@ -75,7 +79,7 @@ export default function Home() {
       <Nav />
       <Map
         {...viewState}
-        mapboxAccessToken={process.env.REACT_APP_MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
         style={{ marginLeft: '260px', width: 'auto', height: '100vh' }}
         onMove={(evt) => setViewState(evt.viewState)}
         mapStyle="mapbox://styles/dylbrad/cl9h7i0r900it14pi0yg2sacm"
@@ -132,8 +136,8 @@ export default function Home() {
                     getAllMarkers();
                   }}
                   location={newEntryLocation}
-                  setIsSignUp={props.setIsSignUp}
-                  setShowAuthModal={props.setShowAuthModal}
+                  // setIsSignUp={props.setIsSignUp}
+                  // setShowAuthModal={props.setShowAuthModal}
                   setNewEntryLocation={setNewEntryLocation}
                 />
               </div>
