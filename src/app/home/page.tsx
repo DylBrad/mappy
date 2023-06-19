@@ -55,7 +55,7 @@ export default function Home() {
     getAllMarkers();
     setCoordinatesToUserLocation();
     console.log('Hi !!!!!!!');
-    console.log('TOKEN', process.env.NEXT_PUBLIC_MAPBOC_ACCESS_TOKEN);
+    console.log('TOKEN', process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN);
   }, []);
 
   const showAddMarkerPopup = (e: any) => {
@@ -79,7 +79,9 @@ export default function Home() {
       <Nav />
       <Map
         {...viewState}
-        mapboxAccessToken={process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN}
+        mapboxAccessToken={
+          'pk.eyJ1IjoiZHlsYnJhZCIsImEiOiJjbDE1NmZ4amowdHZzM29tdG9yNzhwZWNzIn0.BpwzvDsOMVaZbTy8c0XZPw'
+        }
         style={{ marginLeft: '260px', width: 'auto', height: '100vh' }}
         onMove={(evt) => setViewState(evt.viewState)}
         mapStyle="mapbox://styles/dylbrad/cl9h7i0r900it14pi0yg2sacm"

@@ -81,6 +81,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
+        env:
+          NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN }}
 
   # Deployment job
   deploy:
