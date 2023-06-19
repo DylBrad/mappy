@@ -55,6 +55,7 @@ export default function Home() {
     getAllMarkers();
     setCoordinatesToUserLocation();
     console.log('Hi !!!!!!!');
+    console.log('TOKEN', process.env.NEXT_PUBLIC_MAPBOC_ACCESS_TOKEN);
   }, []);
 
   const showAddMarkerPopup = (e: any) => {
